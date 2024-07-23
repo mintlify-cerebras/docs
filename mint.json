@@ -31,6 +31,11 @@
       "url": "api-reference"
     }
   ],
+  "topAnchor": {
+    "name": "Home",
+    "icon": "building",
+    "url": "introduction"
+  },
   "anchors": [
     {
       "name": "Overview",
