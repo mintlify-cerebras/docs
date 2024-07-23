@@ -1,86 +1,107 @@
 ---
 title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
 ---
 
-## Setup your development
+This QuickStart guide is designed to assist you in making your first API call. If you are an experienced AI applications developer, you might find it more beneficial to go directly to the API reference documentation.
 
-Learn how to update your docs locally and and deploy them to the public.
+If you would like to interact with the models using Cerebras’ Inference solution before making an API call, please visit the [developer playground](https://zlgwsxmqyp6tncmuzr7pimpvru0ksaxz.lambda-url.us-west-1.on.aws/platform).
 
-### Edit and preview
+This guide will walk you through:
+* Setting up your developer environment
+* Installing the Cerebras Inference library
+* Making your first request to the Cerebras API
 
-<AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `mint.json` is): ``` mintlify dev ```
-  </Accordion>
-</AccordionGroup>
+## Prerequisites
 
-### Deploy your changes
+To complete this guide, you will need:
+* A Cerebras account
+* A Cerebras Inference API key
+* Python 3.7+, TypeScript 4.5+
 
-<AccordionGroup>
+## Step 1: Set up your API key
 
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
-</Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
-</Accordion>
+The first thing you will need is a valid API key. Please visit [this link](https://zlgwsxmqyp6tncmuzr7pimpvru0ksaxz.lambda-url.us-west-1.on.aws/platform) and navigate to “API Keys” on the left nav bar.
 
-</AccordionGroup>
+For security reasons and to avoid configuring your API key each time, it is recommended to set your API key as an environment variable. You can do this by running the following command in your terminal:
 
-## Update your docs
+```bash
+export CEREBRAS_API_KEY="your-api-key-here"
+```
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+## Step 2: Install the Cerebras Inference library
 
-<CardGroup>
+The Cerebras Inference library is available for download and installation through the Python Package Index (PyPI) and the npm package manager. To install the library run either of the following commands in your terminal, based on your language of choice:
 
-<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
-  Add flair to your docs with personalized branding.
-</Card>
+<CodeGroup>
+```bash Python
+pip3 install https://cerebras-cloud-sdk.s3.us-west-1.amazonaws.com/cerebras_cloud_sdk-0.1.0a2-py3-none-any.whl
+```
 
-<Card
-  title="Add API Endpoints"
-  icon="square-code"
-  href="/api-playground/configuration"
->
-  Implement your OpenAPI spec and enable API user interaction.
-</Card>
+```bash Node.js
+npm install https://cerebras-cloud-sdk.s3.us-west-1.amazonaws.com/cerebras_cloud_sdk-0.1.0-alpha.2.tgz
+```
+</CodeGroup>
 
-<Card
-  title="Integrate Analytics"
-  icon="chart-mixed"
-  href="/analytics/supported-integrations"
->
-  Draw insights from user interactions with your documentation.
-</Card>
+<Note>Note: You can also call the underlying API directly (see cURL request example below in Step 3).</Note>
 
-<Card
-  title="Host on a Custom Domain"
-  icon="browser"
-  href="/settings/custom-domain/subdomain"
->
-  Keep your docs on your own website's subdomain.
-</Card>
+## Step 3: Making an API request
 
-</CardGroup>
+Once you have configured your API key, you are ready to send your first API request.
+
+The following code snippets demonstrate how to make an API request to the Cerebras API to perform a chat completion.
+
+<CodeGroup>
+```python Python
+import os
+from cerebras.cloud.sdk import Cerebras
+ 
+client = Cerebras(
+    # This is the default and can be omitted
+    api_key=os.environ.get("CEREBRAS_API_KEY"),
+)
+ 
+chat_completion = client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "Why is fast inference important?",
+        }
+    ],
+    model="llama3-8b-8192",
+)
+print(chat_completion)
+```
+
+```javascript Node.js
+
+import Cerebras from 'cerebras_cloud_sdk';
+ 
+const cerebras = new Cerebras({
+  apiKey: process.env['CEREBRAS_API_KEY'], // This is the default and can be omitted
+});
+ 
+async function main() {
+  const chatCompletion = await cerebras.chat.completions.create({
+    messages: [{ role: 'user', content: 'Why is fast inference important?' }],
+    model: 'llama3-8b-8192',
+  });
+ 
+  console.log(chatCompletion);
+}
+ 
+main();
+```
+
+```cli cURL
+
+curl --location 'https://d1n704mb908frr.cloudfront.net/v1/chat/completions' 
+--header 'Content-Type: application/json' 
+--header "Authorization: Bearer ${CEREBRAS_API_KEY}" 
+--data '{"model": "llama3-8b-8192", "stream": false,"messages": [{"content": "what is your name?", "role": "user"}], "prompt": "", "temperature": 0, "stop_sequence": "", "max_tokens": -1, "seed": 0, "top_p": 1}'
+
+```
+</CodeGroup>
+
+## Next Steps
+* Check out our API Reference to learn about the details of our available endpoints and request parameters.
+* Learn how to stream responses 
