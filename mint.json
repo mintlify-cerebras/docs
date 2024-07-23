@@ -31,22 +31,11 @@
       "url": "api-reference"
     }
   ],
-  "topAnchor": {
-    "name": "Home",
-    "icon": "building",
-    "url": "introduction"
-  },
-  "anchors": [
-    {
-      "name": "Overview",
-      "icon": "book-open-cover",
-      "url": "introduction"
-    }
-  ],
   "navigation": [
     {
       "group": "Get Started",
       "pages": [
+        "introduction",
         "quickstart"
       ]
     },
