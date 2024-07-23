@@ -40,7 +40,7 @@
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "Endpoints",
       "pages": [
         "api-reference/chat-completions"
       ]
