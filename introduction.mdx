@@ -1,71 +1,43 @@
 ---
-title: Introduction
-description: 'Welcome to the home of your new documentation'
+title: Cerebras API Developer Platform
 ---
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.svg"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  alt="Hero Dark"
-/>
+The Cerebras API offers developers a low-latency solution for AI model inference powered by Cerebras Wafer-Scale Engines and CS-3 systems. We invite developers to explore the new possibilities that our high-speed inferencing solution unlocks.
 
-## Setting up
+Currently, the Cerebras API provides access to two models: Meta’s Llama 3 8B and 70B models. Both models are instruction-tuned and can be used for conversational applications. 
 
-The first step to world-class documentation is setting up your editing environments.
 
 <CardGroup cols={2}>
   <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
+    title="Llama-3-8B"
   >
-    Get your docs set up locally for easy development
+    * Parameters: 8 billion
+    * Knowledge cutoff: March 2023
+    * Context Length: 8192
+    * Training Tokens: 15 trillion
+    
   </Card>
   <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
+    title="Llama-3-70B"
   >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
+    * Parameters: 70 billion
+    * Knowledge cutoff: December 2023
+    * Context Length: 8192
+    * Training Tokens: 15 trillion  
+    </Card>
 </CardGroup>
 
-## Make it yours
+<Card title="QuickStart Guide" href="/quickstart">
+Get started by building your first application using our QuickStart guide
+<br></br>
 
-Update your docs to your brand and add valuable content for the best user conversion.
+<Frame>
+  <img src="/images/quickstart-image.png" />
+</Frame>
 
-<CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
-  </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
-  >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
-  </Card>
-</CardGroup>
+</Card>
+
+## Resources
+* Play with our [live chatbot demo](https://zlgwsxmqyp6tncmuzr7pimpvru0ksaxz.lambda-url.us-west-1.on.aws/chat).
+* Experiment with our inference solution in the [playground](https://zlgwsxmqyp6tncmuzr7pimpvru0ksaxz.lambda-url.us-west-1.on.aws/platform) before making an API call.
+* Explore our API reference documentation. 
