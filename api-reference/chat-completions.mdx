@@ -61,7 +61,7 @@ chat_completion = client.chat.completions.create(
             "content": "Why is fast inference important?",
         }
     ],
-    model="llama3-8b-8192",
+    model="llama3.1-8b",
 )
 print(chat_completion)
 ```
@@ -76,7 +76,7 @@ const cerebras = new Cerebras({
 async function main() {
   const chatCompletion = await cerebras.chat.completions.create({
     messages: [{ role: 'user', content: 'Why is fast inference important?' }],
-    model: 'llama3-8b-8192',
+    model: 'llama3.1-8b',
   });
  
   console.log(chatCompletion);
@@ -101,7 +101,7 @@ main();
   ],
   "created": 1721088719,
   "id": "response_1721",
-  "model": "llama3-8b-8192",
+  "model": "llama3.1-8b",
   "object": "chat.completion",
   "system_fingerprint": "88719",
   "time_info": {
