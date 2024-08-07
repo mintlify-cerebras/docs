@@ -20,7 +20,7 @@ To complete this guide, you will need:
 
 ## Step 1: Set up your API key
 
-The first thing you will need is a valid API key. Please visit [this link](https://zlgwsxmqyp6tncmuzr7pimpvru0ksaxz.lambda-url.us-west-1.on.aws/platform) and navigate to “API Keys” on the left nav bar.
+The first thing you will need is a valid API key. Please visit [this link](https://d3r97n7qwktix5.cloudfront.net/) and navigate to “API Keys” on the left nav bar.
 
 For security reasons and to avoid configuring your API key each time, it is recommended to set your API key as an environment variable. You can do this by running the following command in your terminal:
 
@@ -74,18 +74,17 @@ print(chat_completion)
 
 import Cerebras from 'cerebras_cloud_sdk';
 
-const cerebras = new Cerebras({
-  apiKey: process.env['CEREBRAS_API_KEY'], // This is the
-default and can be omitted
+const client = new Cerebras({
+  apiKey: process.env['CEREBRAS_API_KEY'], // This is the default and can be omitted
 });
+
 async function main() {
-  const chatCompletion = await
-cerebras.chat.completions.create({
-    messages: [{ role: 'user', content: 'Why is fast inference
-important?' }],
+  const completionCreateResponse = await client.chat.completions.create({
+    messages: [{ role: 'user', content: 'Why is fast inference important?' }],
     model: 'llama3.1-8b',
-});
-  console.log(chatCompletion);
+  });
+
+  console.log(completionCreateResponse);
 }
 
 main();
@@ -110,5 +109,5 @@ curl --location 'https://d1n704mb908frr.cloudfront.net/v1/chat/completions' \
 </CodeGroup>
 
 ## Next Steps
-* Check out our API Reference to learn about the details of our available endpoints and request parameters.
-* Learn how to stream responses 
+* Check out our [API Reference]('https://inference-docs.cerebras.ai/api-reference/chat-completions') to learn about the details of our available endpoints and request parameters.
+* Learn how to [stream responses]('https://inference-docs.cerebras.ai/streaming')
