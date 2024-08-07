@@ -18,14 +18,14 @@ The maximum number of **tokens** that can be generated in the completion. The to
 </ParamField>
 
 <ParamField path="seed" type="integer | null">
-If specified, our system will make a best e.ort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result. Determinism is not guaranteed.
+If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result. Determinism is not guaranteed.
 </ParamField>
 
 <ParamField path="stop" type="string | null">
 Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence.
 </ParamField>
 
-<ParamField path="stream" type="bollean | null">
+<ParamField path="stream" type="boolean | null">
 If set, partial message deltas will be sent.
 </ParamField>
 
