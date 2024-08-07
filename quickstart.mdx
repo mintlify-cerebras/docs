@@ -4,7 +4,7 @@ title: 'Quickstart'
 
 This QuickStart guide is designed to assist you in making your first API call. If you are an experienced AI applications developer, you may find it more beneficial to go directly to the [API reference documentation](https://inference-docs.cerebras.ai/api-reference/chat-completions).
 
-If you would like to interact with the models using Cerebras’ Inference solution before making an API call, please visit the [developer playground](https://d3r97n7qwktix5.cloudfront.net/).
+If you would like to interact with the models using Cerebras’ Inference solution before making an API call, please visit the [developer playground](https://cloud.cerebras.ai).
 
 This guide will walk you through:
 * Setting up your developer environment
@@ -20,7 +20,7 @@ To complete this guide, you will need:
 
 ## Step 1: Set up your API key
 
-The first thing you will need is a valid API key. Please visit [this link](https://d3r97n7qwktix5.cloudfront.net/) and navigate to “API Keys” on the left nav bar.
+The first thing you will need is a valid API key. Please visit [this link](https://cloud.cerebras.ai) and navigate to “API Keys” on the left nav bar.
 
 For security reasons and to avoid configuring your API key each time, it is recommended to set your API key as an environment variable. You can do this by running the following command in your terminal:
 
@@ -93,7 +93,7 @@ main();
 ```
 
 ```cli cURL
-curl --location 'https://d1n704mb908frr.cloudfront.net/v1/chat/completions' \
+curl --location 'https://api.cerebras.ai/v1/chat/completions' \
 --header 'Content-Type: application/json' \
 --header "Authorization: Bearer ${CEREBRAS_API_KEY}" \
 --data '{
