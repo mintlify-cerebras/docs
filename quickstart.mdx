@@ -92,16 +92,20 @@ main();
 ```
 
 ```cli cURL
-
-curl --location
-'https://d1n704mb908frr.cloudfront.net/v1/chat/completions' --
-header 'Content-Type: application/json' --header
-"Authorization: Bearer ${CEREBRAS_API_KEY}" --data '{"model":
-"llama3.1-8b", "stream": false,"messages": [{"content": "what
-is your name?", "role": "user"}], "prompt": "", "temperature":
-0, "stop_sequence": "", "max_tokens": -1, "seed": 0, "top_p":
-1}'
-
+curl --location 'http://d3r97n7qwktix5.cloudfront.net/v1/chat/completions' \
+--header 'Content-Type: application/json' \
+--header "Authorization: Bearer ${CEREBRAS_API_KEY}" \
+--data '{
+  "model": "llama3.1-8b",
+  "stream": false,
+  "messages": [{"content": "why is fast inference important?", "role": "user"}],
+  "prompt": "",
+  "temperature": 0,
+  "stop_sequence": "",
+  "max_tokens": -1,
+  "seed": 0,
+  "top_p": 1
+}'
 ```
 </CodeGroup>
 
